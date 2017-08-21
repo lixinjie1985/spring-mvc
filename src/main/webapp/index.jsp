@@ -12,8 +12,8 @@
 <title>index</title>
 </head>
 <body>
-	<%= request.getContextPath() %>
+	<a href="${pageContext.request.contextPath}/user/add">add  user</a><br />
+	<a href="${pageContext.request.contextPath}/user/list">list  user</a>
 	
-	${pageContext.request.contextPath}
 </body>
 </html>
