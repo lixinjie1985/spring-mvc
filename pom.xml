@@ -1,0 +1,170 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>org.eop</groupId>
+  <artifactId>spring-mvc</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <name>spring-mvc Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>4.3.10.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>4.3.10.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>4.3.10.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>4.3.10.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>4.3.10.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>4.3.10.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>4.3.10.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-expression</artifactId>
+      <version>4.3.10.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>jstl</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+  </dependencies>
+  
+	<build>
+	  	<!-- 源代码目录(可以不定义，默认即使src/main/java) -->
+	  	<sourceDirectory>src/main/java</sourceDirectory>
+	  	<!-- 编译后的class文件输出目录(不定义默认是target/classes) -->
+	  	<outputDirectory>target/output/main</outputDirectory>
+	  	<!-- 测试源代码目录(可以不定义，默认即使src/test/java) -->
+	  	<testSourceDirectory>src/test/java</testSourceDirectory>
+	  	<!-- 编译后的class文件输出目录(不定义默认是target/test-classes) -->
+	  	<testOutputDirectory>target/output/test</testOutputDirectory>
+	  	<!-- 最终输出目录(不定义默认是target) -->
+	  	<directory>target/output/all</directory>
+	  	<!-- 生成的war包名称 -->
+	  	<finalName>${artifactId}-${version}</finalName>
+	  	<!-- 定义资源文件拷贝到的目的目录 -->
+	  	<!-- 
+	  	<resources>
+	  		<resource>
+	  			<directory></directory>
+	  			<targetPath></targetPath>
+	  		</resource>
+	  	</resources>
+	  	 -->
+  		<plugins>
+	  		<!-- 清除输出目录(可以不用配置) -->
+	  		<!-- 
+	  		<plugin>
+	  			<groupId>org.apache.maven.plugins</groupId>
+	  			<artifactId>maven-clean-plugin</artifactId>
+	  			<version>3.0.0</version>
+	  		</plugin>
+	  		 -->
+	  		<!-- 编译源码 -->
+	  		<plugin>
+	  			<groupId>org.apache.maven.plugins</groupId>
+	  			<artifactId>maven-compiler-plugin</artifactId>
+	  			<version>3.6.1</version>
+	  			<configuration>
+	  				<source>1.7</source>
+	  				<target>1.7</target>
+	  				<encoding>UTF-8</encoding>
+	  			</configuration>
+	  		</plugin>
+	  		<!-- 打包文件(可以不用配置) -->
+	  		<!-- 
+	  		<plugin>
+	  			<groupId>org.apache.maven.plugins</groupId>
+	  			<artifactId>maven-war-plugin</artifactId>
+	  			<version>3.1.0</version>
+	  			<configuration></configuration>
+	  		</plugin>
+	  		 -->
+	  		<!-- 拷贝依赖jar包(可以不用配置) -->
+	  		<!-- 
+	  		<plugin>
+	  			<groupId>org.apache.maven.plugins</groupId>
+	  			<artifactId>maven-dependency-plugin</artifactId>
+	  			<version>3.0.1</version>
+	  			<executions>
+	  				<execution>
+	  					<id>copy-dependencies</id>
+	  					<phase>package</phase>
+	  					<goals>
+	  						<goal>copy-dependencies</goal>
+	  					</goals>
+	  					<configuration></configuration>
+	  				</execution>
+	  			</executions>
+	  		</plugin>
+	  		 -->
+	  		<!-- 打包源码 -->
+	  		<plugin>
+	  			<groupId>org.apache.maven.plugins</groupId>
+	  			<artifactId>maven-source-plugin</artifactId>
+	  			<version>3.0.1</version>
+	  			<executions>
+	  				<execution>
+	  					<id>attach-sources</id>
+	  					<phase>verify</phase>
+	  					<goals>
+	  						<goal>jar-no-fork</goal>
+	  					</goals>
+	  					<configuration></configuration>
+	  				</execution>
+	  			</executions>
+	  		</plugin>
+	  		<!-- 拷贝资源文件 -->
+	  		<!-- 
+	  		<plugin>
+	  			<groupId>org.apache.maven.plugins</groupId>
+	  			<artifactId>maven-resources-plugin</artifactId>
+	  			<version>3.0.2</version>
+	  		</plugin>
+	  		 -->
+	  		<!-- 安装到仓库(可以不用配置) -->
+	  		<!-- 
+	  		<plugin>
+	  			<groupId>org.apache.maven.plugins</groupId>
+	  			<artifactId>maven-install-plugin</artifactId>
+	  			<version>2.5.2</version>
+	  		</plugin>
+	  		 -->
+  		</plugins>
+	</build>
+</project>
