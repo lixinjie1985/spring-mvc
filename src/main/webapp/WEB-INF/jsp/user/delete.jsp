@@ -10,14 +10,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>edit user</title>
+<title>delete user</title>
 </head>
 <body>
-	<form:form method="put" action="${pageContext.request.contextPath}/user/edit" modelAttribute="user">
+	<form:form method="delete" action="${pageContext.request.contextPath}/user/delete" modelAttribute="user">
 		<form:hidden path="id"/>
 		userName:<form:input path="userName"/><br />
 		password:<form:input path="password"/><br />
-		<input type="submit" value="save  user" />
+		<input type="submit" value="delete  user" />
 	</form:form>
 </body>
 </html>

@@ -10,14 +10,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>edit user</title>
+<title>add file</title>
 </head>
 <body>
-	<form:form method="put" action="${pageContext.request.contextPath}/user/edit" modelAttribute="user">
-		<form:hidden path="id"/>
-		userName:<form:input path="userName"/><br />
-		password:<form:input path="password"/><br />
-		<input type="submit" value="save  user" />
-	</form:form>
+	<c:if test="${name != null}">
+		name:${name}
+	</c:if>
+	<br />
+	<c:if test="${size != null}">
+		size:${size}
+	</c:if>
+	<form method="post" action="${pageContext.request.contextPath}/user/file1" enctype="multipart/form-data">
+		name:<input type="text" name="name" /><br />
+		file:<input type="file" name="file" /><br />
+		<input type="submit" value="add  file" />
+	</form>
 </body>
 </html>
