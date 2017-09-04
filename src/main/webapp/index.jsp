@@ -13,7 +13,7 @@
 </head>
 <body>
 	<a href="${pageContext.request.contextPath}/user/add">add  user</a><br />
-	<a href="${pageContext.request.contextPath}/user/list">list  user</a>
-	
+	<a href="${pageContext.request.contextPath}/user/list">list  user</a><br />
+	<a href="${pageContext.request.contextPath}/user/file1">add  file1</a><br />
 </body>
 </html>
