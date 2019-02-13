@@ -13,7 +13,7 @@
 <title>list user</title>
 </head>
 <body>
-	<a href="${pageContext.request.contextPath}">home page</a><br /><br />
+	<a href="${pageContext.request.contextPath}/index.jsp">home page</a><br /><br />
 	<c:choose>
 		<c:when test="${operation == 'add'}">
 		user add:<br />

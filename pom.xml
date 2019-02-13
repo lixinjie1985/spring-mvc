@@ -116,6 +116,7 @@
 	  		</plugin>
 	  		 -->
 	  		<!-- 编译源码 -->
+	  		
 	  		<plugin>
 	  			<groupId>org.apache.maven.plugins</groupId>
 	  			<artifactId>maven-compiler-plugin</artifactId>
@@ -126,6 +127,7 @@
 	  				<encoding>UTF-8</encoding>
 	  			</configuration>
 	  		</plugin>
+	  		
 	  		<!-- 打包文件(可以不用配置) -->
 	  		<!-- 
 	  		<plugin>
@@ -185,6 +187,21 @@
 	  			<version>2.5.2</version>
 	  		</plugin>
 	  		 -->
+	  		<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.2.3.v20140905</version>
+				<configuration>
+					<reload>manual</reload>
+					<scanIntervalSeconds>0</scanIntervalSeconds>
+					<httpConnector>
+						<port>8080</port>
+					</httpConnector>
+					<webApp>
+						<contextPath>/spring-mvc</contextPath>
+					</webApp>
+				</configuration>
+			</plugin>
   		</plugins>
 	</build>
 </project>

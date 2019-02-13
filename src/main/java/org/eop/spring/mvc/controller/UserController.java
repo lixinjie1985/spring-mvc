@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -72,7 +73,7 @@ public class UserController {
 	public String deleteUser(@PathVariable("id")Long id, Model model) {
 		User user = userService.getUser(id);
 		model.addAttribute("user", user);
-		return "/user/delete";
+		return "user/delete";
 	}
 	
 	@DeleteMapping("/delete")
@@ -104,7 +105,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/file1")
-	public String uploadFile1(@RequestParam("name") String name, @RequestParam("file") Part file, Model model) {
+	public String uploadFile1(@RequestPart("name") String name, @RequestParam("file") Part file, Model model) {
 		if (file != null) {
 			model.addAttribute("name", name + "-file1-" + file.getSubmittedFileName());
 			model.addAttribute("size", file.getSize());
